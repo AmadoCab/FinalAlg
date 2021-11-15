@@ -1,21 +1,25 @@
-poly = [
-	(225,431), (50,176), (136,19), (225,158), (314,19),
-	(400,176), (225,431)
-]
+# Coordenadas en x de los vertices
+pol_ver_x = [0, 1, 2]
+# Coordenadas en y de los vertices
+pol_ver_y = [0, 2, 0]
 
-p = (220,100)
+# Punto a evaluar
+point_x, point_y = (1,1)
 
-n = len(poly)
-count = 0
-x, y = p[0], p[1]
+# Función
+def testPointInPolygon(pol_ver_x, pol_ver_y, point_x, point_y):
+    n = len(pol_ver_x)
+    count = 0
+    x, y = point_x, point_y
 
-for i in range(n-1):
-    ax, ay = poly[i][0], poly[i][1]
-    bx, by = poly[i+1][0], poly[i+1][1]
-    if ((y > ay) != (y > by)) and (x < (y-ay)*(ax-bx)/(ay-by)+ax):
-        count += 1
-ans =  count%2 != 0
+    for i in range(n-1):
+        ax, ay = pol_ver_x[i], pol_ver_y[i]
+        bx, by = pol_ver_x[i+1], pol_ver_y[i+1]
+        if ((y > ay) != (y > by)) and (x < (y-ay)*(ax-bx)/(ay-by)+ax):
+            count += 1
+    return count%2 != 0
 
-print(ans)
+# Llamando a la función
+print(testPointInPolygon(pol_ver_x,pol_ver_y,point_x,point_y))
 
 # EOF #

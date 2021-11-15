@@ -1,5 +1,7 @@
+# Arreglo de numeros
 A = [1,-1,3,0,8]
 
+# Función
 def get_minabs(l):
     l = sorted(l)
     minval = l[1] - l[0]
