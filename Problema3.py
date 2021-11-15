@@ -9,6 +9,7 @@ def get_minabs(l):
         minval = min(minval, l[i]-l[i-1])
     return minval
 
+# Llamando a la función
 print(get_minabs(A))
 
 # EOF #
